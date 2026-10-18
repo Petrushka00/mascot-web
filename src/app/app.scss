@@ -1,0 +1,13 @@
+.main-layout {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  background-color:#1a1a1e;
+}
+
+app-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+
