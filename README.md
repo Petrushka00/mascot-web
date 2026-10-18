@@ -1,59 +1,35 @@
-# MascotWeb
+# MASCOT — Multi-Agent System for Corporate Orchestration of Talent
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.27.
+Интерфейс мультиагентной системы по оценке сотрудников и формированию команд. Проект разработан на платформе **Angular** с фиксированной темной раскладкой для настольных компьютеров (PC).
 
-## Development server
 
-To start a local development server, run:
+## Команды разработки (Development Guide)
 
+Этот проект был сгенерирован с помощью [Angular CLI](https://github.com/angular/angular-cli). Ниже приведены основные команды для работы:
+
+### Установка зависимостей
+Перед первым запуском обязательно установите пакеты с флагом обхода строгих peer-контрактов для стабильной сборки дерева npm:
 ```bash
-ng serve
+npm install --legacy-peer-deps
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Запуск сервера (Development server)
+Для запуска локального сервера разработки выполните:
+```bash
+ng serve --open
+```
+После компиляции приложение автоматически откроется в браузере по адресу: `http://localhost:4200/`. Страница будет автоматически перезагружаться при изменении любых исходных файлов.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### Создание новых компонентов (Code scaffolding)
+Чтобы сгенерировать новый компонент, страницу, директиву или сервис, используйте встроенные инструменты генерации:
 ```bash
 ng generate component component-name
 ```
+Для получения полного списка доступных шаблонов генерации запустите `ng generate --help`.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
+### Сборка проекта (Building)
+Чтобы собрать проект для продакшена, выполните:
 ```bash
 ng build
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Скомпилированные файлы проекта будут сохранены в директории `dist/`. По умолчанию сборка оптимизирует приложение для максимальной производительности и скорости работы.
