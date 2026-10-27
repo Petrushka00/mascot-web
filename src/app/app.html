@@ -1,7 +1,24 @@
 <app-header></app-header>
 <main>
   <div class="main-layout">
-    <app-sidebar></app-sidebar>
-    <app-dashboard></app-dashboard>
+    <app-sidebar
+      [activePage]="currentPage()"
+      (pageChanged)="navigateTo($event)">
+    </app-sidebar>
+   @switch (currentPage()) {
+      @case ('dashboard') {
+        <app-dashboard></app-dashboard>
+      }
+      @case ('employees') {
+        <app-employees></app-employees>
+      }
+      @case('projects_info'){
+        <app-projects_info></app-projects_info>
+      }
+      @case('teams'){
+        <app-teams></app-teams>
+      }
+
+    }
   </div>
 </main>

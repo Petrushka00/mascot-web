@@ -1,0 +1,90 @@
+<div class="content-body">
+  <!-- Заголовок страницы -->
+  <div class="page-title-row">
+    <div>
+      <h1>Сотрудники</h1>
+      <span class="subtitle">142 сотрудника</span>
+    </div>
+    <button class="btn-primary">+ Добавить сотрудника</button>
+  </div>
+
+  <!-- Панель фильтров -->
+  <div class="filters-row">
+    <div class="select-group">
+      <select><option>Все отделы</option></select>
+      <select><option>Все уровни</option></select>
+      <select><option>Все статусы</option></select>
+    </div>
+    <button class="btn-secondary">Фильтры</button>
+  </div>
+
+  <!-- Таблица данных -->
+  <div class="table-container">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Сотрудник</th>
+          <th>Должность</th>
+          <th>Отдел</th>
+          <th>Оценка</th>
+          <th>Статус</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (employee of employees; track employee.id) {
+          <tr>
+            <td>
+              <div class="employee-cell">
+                <!-- Заглушка под аватар (можно вставить <img [src]="...">) -->
+                <div class="avatar-placeholder"></div>
+                <div>
+                  <div class="emp-name">
+                    {{ employee.name }}
+                    <!-- Выполнение Пункта №5 ДЗ: @if для бейджа Тест -->
+                    @if (employee.isTest) {
+                      <span class="badge-test">Тест</span>
+                    }
+                  </div>
+                  <div class="emp-meta">{{ employee.meta }}</div>
+                </div>
+              </div>
+            </td>
+            <td>{{ employee.position }}</td>
+            <td>{{ employee.department }}</td>
+            <td><span class="rating">{{ employee.rating }}</span></td>
+            <td>
+              <span class="status"
+                    [class.status-active]="employee.status === 'Активен'"
+                    [class.status-paused]="employee.status === 'В отпуске'">
+                ● {{ employee.status }}
+              </span>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5" style="text-align: center; padding: 32px; color: var(--text-muted);">
+              Список сотрудников пуст
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Пагинация из макета -->
+  <div class="pagination-row">
+    <div class="pagination">
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">4</button>
+      <button class="page-btn">5</button>
+      <span class="page-dots">...</span>
+    </div>
+    <div class="pagination-info">
+      Показано 1-6 из 142
+    </div>
+  </div>
+</div>
+
+

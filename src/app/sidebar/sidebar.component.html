@@ -2,10 +2,10 @@
   <div class="logo">Навигация</div>
 
   <div class="menu">
-    <a href="#" class="active">Обзор</a>
-    <a href="#">Сотрудники</a>
-    <a href="#">Команды</a>
-    <a href="#">Проекты</a>
+    <a (click)="selectPage('dashboard')" [class.active]="activePage === 'dashboard'" class="menu-item">Обзор</a>
+    <a (click)="selectPage('employees')" [class.active]="activePage === 'employees'" class = "menu-item">Сотрудники</a>
+    <a (click)="selectPage('teams')" [class.active]="activePage === 'teams'" class ='menu-item'>Команды</a>
+    <a (click)="selectPage('projects_info')" [class.active]="activePage === 'projects_info'" class ='menu-item'>Проекты</a>
     <a href="#">Агенты и решения</a>
     <a href="#">Аудит</a>
   </div>

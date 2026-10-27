@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: 'app-sidebar',
@@ -8,5 +8,11 @@ import { Component } from "@angular/core";
 })
 
 export class SidebarComponent{
+  @Input() activePage: string = 'dashboard';
 
+  @Output() pageChanged = new EventEmitter<string>();
+
+  public selectPage(pageName: string): void {
+    this.pageChanged.emit(pageName);
+  }
 }
