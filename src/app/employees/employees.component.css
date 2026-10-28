@@ -1,9 +1,14 @@
+:host {
+  flex: 1;
+  min-width: 0;
+}
+
 .content-body {
   padding: 32px;
   display: flex;
   flex-direction: column;
   gap: 24px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: var(--font-ui);
 }
 
 .page-title-row {
@@ -16,17 +21,17 @@ h1 {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 4px;
-  color:white;
+  color: var(--text-main);
 }
 
 .subtitle {
   font-size: 14px;
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
 .btn-primary {
-  background-color: #4f46e5;
-  color: white;
+  background-color: var(--accent-color);
+  color: var(--text-main);
   border: none;
   padding: 10px 18px;
   border-radius: 8px;
@@ -46,9 +51,9 @@ h1 {
 }
 
 select {
-  background-color: #1e293b;
-  border: 1px solid #334155;
-  color: #f8fafc;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
   padding: 8px 16px;
   border-radius: 8px;
   outline: none;
@@ -57,8 +62,8 @@ select {
 
 .btn-secondary {
   background: transparent;
-  border: 1px solid #334155;
-  color: #94a3b8;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
   padding: 8px 16px;
   border-radius: 8px;
   cursor: pointer;
@@ -66,6 +71,9 @@ select {
 
 .table-container {
   overflow-x: auto;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
 }
 
 .data-table {
@@ -76,13 +84,13 @@ select {
 
 .data-table th, .data-table td {
   padding: 16px;
-  border-bottom: 1px solid #1e293b;
+  border-bottom: 1px solid var(--border-color);
   font-size: 14px;
-  color: #f8fafc;
+  color: var(--text-main);
 }
 
 .data-table th {
-  color: #94a3b8;
+  color: var(--text-muted);
   font-weight: 500;
   padding-bottom: 20px;
 }
@@ -114,8 +122,8 @@ select {
 }
 
 .badge-test {
-  background-color: rgba(59, 130, 246, 0.15);
-  color: #3b82f6;
+  background-color: rgba(79, 70, 229, 0.18);
+  color: #a5b4fc;
   padding: 1px 6px;
   border-radius: 4px;
   font-size: 11px;
@@ -171,16 +179,16 @@ select {
 }
 
 .page-btn.active {
-  background-color: #4f46e5;
-  color: white;
+  background-color: var(--accent-color);
+  color: var(--text-main);
   font-weight: 600;
 }
 
 .page-dots {
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
 .pagination-info {
   font-size: 13px;
-  color: #94a3b8;
+  color: var(--text-muted);
 }

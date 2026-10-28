@@ -2,11 +2,33 @@
   <div class="logo">Навигация</div>
 
   <div class="menu">
-    <a (click)="selectPage('dashboard')" [class.active]="activePage === 'dashboard'" class="menu-item">Обзор</a>
-    <a (click)="selectPage('employees')" [class.active]="activePage === 'employees'" class = "menu-item">Сотрудники</a>
-    <a (click)="selectPage('teams')" [class.active]="activePage === 'teams'" class ='menu-item'>Команды</a>
-    <a (click)="selectPage('projects_info')" [class.active]="activePage === 'projects_info'" class ='menu-item'>Проекты</a>
-    <a href="#">Агенты и решения</a>
-    <a href="#">Аудит</a>
+    <button (click)="selectPage('dashboard')"
+     [class.active]="activePage === 'dashboard'"
+     [disabled]="activePage === 'dashboard'"
+     class="menu-item">Обзор</button>
+
+    <button (click)="selectPage('employees')"
+     [class.active]="activePage === 'employees'"
+     [disabled]="activePage === 'employees'"
+     class = "menu-item">Сотрудники</button>
+
+    <button (click)="selectPage('teams')"
+     [class.active]="activePage === 'teams'"
+     [disabled]="activePage === 'teams'"
+     class ='menu-item'>Команды</button>
+
+    <button (click)="selectPage('projects')"
+     [class.active]="activePage === 'projects'"
+     [disabled]="activePage === 'projects'"
+     class ='menu-item'>Проекты</button>
+
+
+    <button (click)="selectPage('evaluate')"
+     [class.active]="activePage === 'evaluate'"
+     [disabled]="activePage === 'evaluate'"
+     class ='menu-item'>Оценка</button>
+
+    <button>Агенты и решения</button> <!-- Потом -->
+    <button>Аудит</button> <!-- Потом -->
   </div>
 </nav>

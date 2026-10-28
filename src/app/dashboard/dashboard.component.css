@@ -1,10 +1,10 @@
 
 .dashboard-container {
-  background-color: #1a1a1e;
+  background-color: var(--bg-main);
   min-height: 100vh;
   padding: 32px;
-  color: #ffffff;
-  font-family: Roboto, sans-serif;
+  color: var(--text-main);
+  font-family: var(--font-ui);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -37,9 +37,9 @@
 
 .metric-card {
   flex: 0 0 calc(50% - 10px);
-  background-color: #0b0b0c;
-  border: 1px solid #1a1a1e;
-  border-radius: 14px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@
 
 
 .card-title {
-  color: #8e8e93;
+  color: var(--text-muted);
   font-size: 15px;
   font-weight: 400;
 }
@@ -64,7 +64,7 @@
 
 
 .card-subtext {
-  color: #636366;
+  color: var(--text-muted);
   font-size: 13px;
 }
 
