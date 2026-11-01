@@ -1,1 +1,45 @@
+<div class="mascot-container">
 
+  <div>
+    <h3>Аналитика проектов MASCOT</h3>
+    <p>Всего проектов в системе: <strong>{{ totalProjectsCount() }}</strong></p>
+    <p>Общий бюджет активных направлений: <strong>{{ totalActiveBudget()  }}  ₽</strong></p>
+  </div>
+
+
+  <div class="controls">
+    <button (click)="onlyActiveProjects.set(!onlyActiveProjects())">
+      Фильтр: {{ onlyActiveProjects() ? 'Только Активные' : 'Все проекты' }}
+    </button>
+    <button class="btn-danger" (click)="removeAllProjects()">Очистить базу</button>
+  </div>
+
+
+  <div class="add-form">
+    <input #nameInput type="text" placeholder="Название проекта">
+    <input #budgetInput type="number" placeholder="Бюджет">
+    <button (click)="createProject(nameInput.value, +budgetInput.value); nameInput.value=''; budgetInput.value=''">
+      Добавить проект
+    </button>
+  </div>
+
+
+  <ul class="projects-list">
+    @for (project of filteredProjects(); track project.id) {
+      <li [class.archived]="project.status === 'completed'">
+        <div class="info">
+          <span class="id">#{{ project.id }}</span>
+          <span class="name">{{ project.name }}</span>
+          <span class="budget">— {{ project.budget }}  ₽</span>
+        </div>
+
+        @if (project.status === 'active') {
+          <button class="btn-archive" (click)="archiveProject(project.id)">В архив</button>
+        }
+      </li>
+    } @empty {
+      <p class="empty-trigger">Проекты не найдены.</p>
+    }
+  </ul>
+
+</div>

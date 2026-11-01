@@ -5,14 +5,16 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { EvaluateComponent } from './evaluate/evaluate.component';
 import { TeamsComponent } from './teams/teams.component';
-
+import { ProjectsComponent } from './projects/projects.component';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, DashboardComponent, SidebarComponent, EmployeesComponent, EvaluateComponent, TeamsComponent],
+  imports: [HeaderComponent, DashboardComponent, SidebarComponent, EmployeesComponent, EvaluateComponent, TeamsComponent, ProjectsComponent ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
+
+
 export class App {
   protected readonly title = signal('mascot-web');
 

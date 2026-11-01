@@ -35,11 +35,9 @@
 
 В `evaluate.component.html` аналогично используется `@for (evaluation of evaluations; track evaluation.id)`; при пустом массиве выводится сообщение «Нет данных об оценках».
 
-
 #### 5. Ссылка `#variable`
 
 Ссылки на элементы шаблона используются в `teams.component.html`: `#searchKeyEmployees` и `#searchKey`. Их значения читаются в условиях `@if` и выводятся интерполяцией. 
-
 
 
 ## Команды разработки (Development Guide)
