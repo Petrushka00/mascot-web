@@ -1,35 +1,322 @@
 <div class="dashboard-container">
-
+  <!-- Хэдер дашборда -->
   <header class="dashboard-header">
-    <h2 class="dashboard-title">Обзор предприятия</h2>
+    <div class="title-block">
+      <h1 class="dashboard-title">Обзор</h1>
+      <p class="dashboard-subtitle">Ключевые показатели и аналитика кадрового потенциала всей организации</p>
+    </div>
+
+    <div class="filter-block">
+      <select class="dropdown-select">
+        <option>Последние 30 дней</option>
+        <option>Квартал</option>
+        <option>Год</option>
+      </select>
+
+      <button class="download-btn" title="Скачать отчет">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+      </button>
+    </div>
   </header>
 
-  <main class="metrics">
+  <!-- Основная сетка дашборда -->
+  <div class="dashboard-grid">
 
-    <div class="metric-card">
-      <span class="card-title">Сотрудники</span>
-      <div class="card-value">142</div>
-      <span class="card-subtext">В базе системы</span>
+    <!-- ВЕРХНЯЯ СТРОКА: 6 Карточек метрик -->
+    <div class="metrics">
+
+      <!-- 1. Сотрудники -->
+      <div class="metric-card">
+        <span class="card-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;">
+  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+  <circle cx="9" cy="7" r="4"></circle>
+  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+</svg>
+           Сотрудники</span>
+        <div class="card-value">2698</div>
+        <span class="card-subtext trend-up">↑ +9.4%</span>
+      </div>
+
+      <!-- 2. Оценено -->
+      <div class="metric-card">
+        <span class="card-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          Оценено</span>
+        <div class="card-value">2024</div>
+        <span class="card-subtext">75% от штата</span>
+      </div>
+
+      <!-- 3. Средний уровень -->
+      <div class="metric-card">
+        <span class="card-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+
+          Уровень</span>
+        <div class="card-value">3,4 / 5</div>
+        <span class="card-subtext trend-up">↑ +0.2</span>
+      </div>
+
+      <!-- 4. Проекты -->
+      <div class="metric-card">
+        <span class="card-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Проекты</span>
+        <div class="card-value">196</div>
+        <span class="card-subtext alert-card">28 ожидают</span>
+      </div>
+
+      <!-- 5. Дефициты -->
+      <div class="metric-card alert-card">
+        <span class="card-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;">
+            <polygon points="12 19 2 5 22 5 12 19"></polygon>
+          </svg>
+          Дефициты</span>
+        <div class="card-value">251</div>
+        <span class="card-subtext">↑ +9 за неделю</span>
+      </div>
+
+      <!-- 6. Загрузка -->
+      <div class="metric-card ai-card">
+        <span class="card-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+            <polyline points="16 7 22 7 22 13"></polyline>
+          </svg>
+
+          Загрузка</span>
+        <div class="card-value">83%</div>
+        <span class="card-subtext">131 перегружен</span>
+      </div>
+
     </div>
 
-    <div class="metric-card">
-      <span class="card-title">Проекты</span>
-      <div class="card-value">12</div>
-      <span class="card-subtext">Активные</span>
+    <!-- БЛОК 1: Динамика компетенций -->
+    <div class="grid-card chart-competencies">
+      <div class="card-header">
+        <h3>Динамика компетенций</h3>
+        <div class="chart-period">
+          <span class="active">Месяц</span>
+          <span>Квартал</span>
+          <span>Год</span>
+        </div>
+      </div>
+      <div class="chart-placeholder">
+
+        <div class="y-axis-labels">
+          <span>5.0</span>
+          <span>4.0</span>
+          <span>3.0</span>
+          <span>2.0</span>
+          <span>1.0</span>
+        </div>
+
+        <svg class="mock-line-chart-svg" viewBox="0 0 500 160" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="chart-gradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.0"/>
+            </linearGradient>
+          </defs>
+          <path class="area-path" d="M 0 110 Q 100 100 200 85 T 400 65 T 500 75 L 500 160 L 0 160 Z" />
+          <path class="trend-path" d="M 0 110 Q 100 100 200 85 T 400 65 T 500 75" />
+          <circle class="chart-dot" cx="500" cy="75" r="5" />
+        </svg>
+        <div class="x-axis-labels">
+          <span>Июн</span>
+          <span>Июл</span>
+          <span>Авг</span>
+          <span>Сен</span>
+          <span>Окт</span>
+          <span>Ноя</span>
+        </div>
+      </div>
     </div>
 
-    <div class="metric-card alert-card">
-      <span class="card-title">Требуют внимания</span>
-      <div class="card-value">5</div>
-      <span class="card-subtext">Риски и пробелы</span>
+    <!-- БЛОК 2: Уровни сотрудников (2698 в центре) -->
+    <div class="grid-card chart-levels">
+      <div class="card-header">
+        <h3>Уровни сотрудников</h3>
+      </div>
+      <div class="donut-chart-container">
+        <div class="mock-donut">
+          <span class="donut-center"><b>2698</b><br><small>всего</small></span>
+        </div>
+        <ul class="chart-legend">
+          <li><span class="dot-lvl lvl-1"></span> Начальный 15%</li>
+          <li><span class="dot-lvl lvl-2"></span> Базовый 27%</li>
+          <li><span class="dot-lvl lvl-3"></span> Средний 37%</li>
+          <li><span class="dot-lvl lvl-4"></span> Продвинутый 17%</li>
+          <li><span class="dot-lvl lvl-5"></span> Экспертный 4%</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="metric-card ai-card">
-      <span class="card-title">Рекомендации ИИ</span>
-      <div class="card-value">14</div>
-      <span class="card-subtext">Ожидают проверки</span>
+    <!-- БЛОК 3 (ПРАВАЯ ПАНЕЛЬ): Требуют внимания -->
+    <div class="grid-card attention-panel">
+      <div class="card-header">
+        <h3>Требуют внимания <span class="badge">28</span></h3>
+      </div>
+      <div class="attention-list">
+
+        <div class="attention-item">
+          <div class="item-content">
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+
+              Дефицит DevOps</h4>
+            <p>Для проекта «Платформа X» не хватает 2 специалистов.</p>
+            <a href="#" class="item-link">Перейти →</a>
+          </div>
+        </div>
+
+        <div class="attention-item">
+          <div class="item-content">
+            <h4>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+
+              Просроченные оценки</h4>
+            <p>76 сотрудников ожидают завершения оценки.</p>
+            <a href="#" class="item-link">Открыть →</a>
+          </div>
+        </div>
+
+        <div class="attention-item">
+          <div class="item-content">
+            <h4>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+
+               Перегрузка специалистов</h4>
+            <p>131 сотрудник загружен > 100%.</p>
+            <a href="#" class="item-link">Посмотреть →</a>
+          </div>
+        </div>
+
+        <div class="attention-item">
+          <div class="item-content">
+            <h4>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+
+               Согласование оценок</h4>
+            <p>18 оценок ждут подтверждения.</p>
+            <a href="#" class="item-link">Перейти →</a>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-  </main>
+    <!-- БЛОК 4: Дефициты компетенций -->
+    <div class="grid-card deficiency-list">
+      <div class="card-header">
+        <h3>Дефициты компетенций</h3>
+      </div>
+      <div class="progress-container">
+        <div class="progress-row">
+          <span>Backend</span>
+          <div class="progress-bar"><div class="progress-fill fill-red" style="width: 78%"></div></div>
+          <span>78%</span>
+        </div>
+        <div class="progress-row">
+          <span>DevOps</span>
+          <div class="progress-bar"><div class="progress-fill fill-red" style="width: 84%"></div></div>
+          <span>84%</span>
+        </div>
+        <div class="progress-row">
+          <span>Frontend</span>
+          <div class="progress-bar"><div class="progress-fill fill-orange" style="width: 52%"></div></div>
+          <span>52%</span>
+        </div>
+        <div class="progress-row">
+          <span>Аналитика</span>
+          <div class="progress-bar"><div class="progress-fill fill-orange" style="width: 34%"></div></div>
+          <span>34%</span>
+        </div>
+        <div class="progress-row">
+          <span>QA</span>
+          <div class="progress-bar"><div class="progress-fill fill-green" style="width: 18%"></div></div>
+          <span>18%</span>
+        </div>
+      </div>
+    </div>
 
+    <!-- БЛОК 5: Риски по проектам -->
+    <div class="grid-card project-risks">
+      <div class="card-header">
+        <h3>Риски по проектам</h3>
+        <span class="card-subtitle-addon">Топ по дефициту кадров</span>
+      </div>
+      <div class="projects-risk-list">
+
+        <!-- Проект 1: Критический риск -->
+        <div class="project-risk-item status-critical">
+          <div class="project-info">
+            <span class="project-name">Платформа X</span>
+            <span class="project-risk-badge">Критический риск</span>
+          </div>
+          <div class="project-needs">Не хватает: 3 Senior Backend, 1 DevOps</div>
+          <div class="project-bar-container">
+            <div class="project-progress"><div class="project-fill" style="width: 42%"></div></div>
+            <span class="project-percentage">42% укомплектован</span>
+          </div>
+        </div>
+
+        <!-- Проект 2: Средний риск -->
+        <div class="project-risk-item status-warning">
+          <div class="project-info">
+            <span class="project-name">Мобильный банк</span>
+            <span class="project-risk-badge">Средний риск</span>
+          </div>
+          <div class="project-needs">Не хватает: 1 DevOps, 1 Frontend</div>
+          <div class="project-bar-container">
+            <div class="project-progress"><div class="project-fill" style="width: 75%"></div></div>
+            <span class="project-percentage">75% укомплектовано</span>
+          </div>
+        </div>
+
+        <!-- Проект 3: Стабильный уровень -->
+        <div class="project-risk-item status-stable">
+          <div class="project-info">
+            <span class="project-name">CRM-система</span>
+            <span class="project-risk-badge">Стабильно</span>
+          </div>
+          <div class="project-needs">Штат полностью укомплектован</div>
+          <div class="project-bar-container">
+            <div class="project-progress"><div class="project-fill" style="width: 100%"></div></div>
+            <span class="project-percentage">100% укомплектован</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 </div>

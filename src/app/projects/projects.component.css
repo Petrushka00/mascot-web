@@ -59,7 +59,7 @@
   padding: 0 22px;
   border: none;
   border-radius: 10px;
-  background: #4f46e5;
+  background: #a446d7;
   color: #ffffff;
   font-size: 14px;
   font-weight: 600;
@@ -69,7 +69,7 @@
 
 .controls button:hover,
 .add-form button:hover {
-  background: #6259f0;
+  background: #a446d7;
   transform: translateY(-2px);
 }
 
