@@ -1,17 +1,16 @@
-
 :host {
   display: block;
   width: 100%;
   min-width: 0;
-  color: #f4f6fb;
-  font-family: Arial, sans-serif;
+  color: var(--text-main);
+  font-family: var(--font-ui), Arial, sans-serif;
 }
 
 .mascot-container {
   width: 100%;
   box-sizing: border-box;
   padding: 30px 36px;
-  color: #f4f6fb;
+  color: var(--text-main);
 }
 
 .mascot-container > div:first-child {
@@ -26,16 +25,17 @@
   letter-spacing: -0.7px;
 }
 
+
 .mascot-container > div:first-child p {
   display: inline-flex;
   align-items: center;
   gap: 7px;
   margin: 0 24px 0 0;
   padding: 15px 19px;
-  background: #202b3f;
-  border: 1px solid #34445d;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
-  color: #aab8cc;
+  color: var(--text-muted);
   font-size: 14px;
 }
 
@@ -53,13 +53,14 @@
   margin: 25px 0;
 }
 
+/* Главные фиолетовые кнопки */
 .controls button,
 .add-form button {
   min-height: 48px;
   padding: 0 22px;
   border: none;
   border-radius: 10px;
-  background: #a446d7;
+  background: #8b5cf6;
   color: #ffffff;
   font-size: 14px;
   font-weight: 600;
@@ -69,18 +70,19 @@
 
 .controls button:hover,
 .add-form button:hover {
-  background: #a446d7;
+  background: #a78bfa;
   transform: translateY(-2px);
 }
 
 .controls .btn-danger {
-  background: #39252e;
-  border: 1px solid #75404c;
-  color: #ff8292;
+  background: rgba(239, 68, 68, 0.1) !important;
+  border: 1px solid #ef4444 !important;
+  color: #ef4444 !important;
 }
 
 .controls .btn-danger:hover {
-  background: #56303a;
+  background: #ef4444 !important;
+  color: #ffffff !important;
 }
 
 
@@ -90,8 +92,8 @@
   gap: 12px;
   margin-bottom: 25px;
   padding: 18px;
-  background: #202b3f;
-  border: 1px solid #34445d;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   box-sizing: border-box;
 }
@@ -102,23 +104,22 @@
   box-sizing: border-box;
   height: 48px;
   padding: 0 15px;
-  background: #1a2436;
-  border: 1px solid #34445d;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
   border-radius: 9px;
   outline: none;
-  color: #ffffff;
+  color: var(--text-main);
   font-size: 14px;
   transition: border-color 0.2s;
 }
 
 .add-form input::placeholder {
-  color: #8190a7;
+  color: var(--text-muted);
 }
 
 .add-form input:focus {
-  border-color: #6259f0;
+  border-color: #8b5cf6;
 }
-
 
 
 .projects-list {
@@ -143,20 +144,20 @@
   min-height: 180px;
   box-sizing: border-box;
   padding: 24px;
-  background: #202b3f;
-  border: 1px solid #34445d;
-  border-radius: 11px;
-  color: #f4f6fb;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  color: var(--text-main);
   transition: border-color 0.2s, transform 0.2s;
 }
 
 .projects-list li:hover {
-  border-color: #53698a;
+  border-color: #8b5cf6;
   transform: translateY(-3px);
 }
 
 .projects-list li.archived {
-  opacity: 0.65;
+  opacity: 0.4;
 }
 
 .projects-list .info {
@@ -166,6 +167,7 @@
   gap: 10px;
 }
 
+
 .projects-list .id {
   display: flex;
   align-items: center;
@@ -174,9 +176,9 @@
   height: 48px;
   padding: 0 10px;
   box-sizing: border-box;
-  background: #254d68;
+  background: rgba(100, 210, 255, 0.15);
   border-radius: 10px;
-  color: #8bd5ff;
+  color: #64d2ff;
   font-size: 13px;
   font-weight: 700;
 }
@@ -190,7 +192,7 @@
 .projects-list .budget {
   width: 100%;
   margin-left: 58px;
-  color: #aab8cc;
+  color: var(--text-muted);
   font-size: 14px;
 }
 
@@ -199,10 +201,10 @@
   align-self: flex-start;
   margin-top: 20px;
   padding: 9px 16px;
-  background: #253d50;
-  border: 1px solid #315b78;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
-  color: #61c6ff;
+  color: var(--text-muted);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -210,77 +212,19 @@
 }
 
 .projects-list .btn-archive:hover {
-  background: #31536c;
+  background-color: var(--bg-card);
   color: #ffffff;
+  border-color: #8b5cf6;
 }
-
 
 
 .projects-list .empty-trigger {
   grid-column: 1 / -1;
   padding: 45px 20px;
-  background: #202b3f;
-  border: 1px dashed #455570;
+  background-color: var(--bg-card);
+  border: 1px dashed var(--border-color);
   border-radius: 12px;
-  color: #aab8cc;
+  color: var(--text-muted);
   text-align: center;
   font-size: 15px;
 }
-
-
-
-@media (max-width: 1100px) {
-  .projects-list {
-    grid-template-columns: 1fr;
-  }
-
-  .add-form {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .add-form button {
-    grid-column: 1 / -1;
-  }
-}
-
-
-
-@media (max-width: 650px) {
-  .mascot-container {
-    padding: 20px 15px;
-  }
-
-  .mascot-container h3 {
-    font-size: 26px;
-  }
-
-  .mascot-container > div:first-child p {
-    display: flex;
-    width: 100%;
-    box-sizing: border-box;
-    margin: 8px 0;
-  }
-
-  .controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .add-form {
-    grid-template-columns: 1fr;
-  }
-
-  .add-form button {
-    grid-column: auto;
-  }
-
-  .projects-list {
-    grid-template-columns: 1fr;
-  }
-
-  .projects-list li {
-    padding: 18px;
-  }
-}
-
-
