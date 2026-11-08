@@ -21,7 +21,7 @@ export class EmployeesComponent {
   employees = signal<Employee[]>([
     {
       id: 1,
-      name: 'Александр Федолвич Иванов',
+      name: 'Александр Сергеевич Иванов',
       position: 'Frontend-разработчик',
       department: 'Разработка',
       evaluation: 92,

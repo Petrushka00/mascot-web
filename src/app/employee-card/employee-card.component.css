@@ -42,7 +42,7 @@
 
 .employee-position,
 .employee-department {
-  color: #4b5563;
+  color: var(--text-muted);
   font-size: 13px;
 }
 
