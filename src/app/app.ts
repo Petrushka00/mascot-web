@@ -9,7 +9,8 @@ import { ProjectsComponent } from './projects/projects.component';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, DashboardComponent, SidebarComponent, EmployeesComponent, EvaluateComponent, TeamsComponent, ProjectsComponent ],
+  imports: [HeaderComponent, DashboardComponent, SidebarComponent,
+    EmployeesComponent, EvaluateComponent, TeamsComponent, ProjectsComponent ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

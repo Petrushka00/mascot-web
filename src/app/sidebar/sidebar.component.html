@@ -1,7 +1,6 @@
 <nav class="sidebar">
-  <div class="logo">Навигация</div>
-
   <div class="menu">
+    <p class = "field first-field">РАБОЧЕЕ ПРОСТРАНСТВО</p>
     <button (click)="selectPage('dashboard')"
      [class.active]="activePage === 'dashboard'"
      [disabled]="activePage === 'dashboard'"
@@ -28,7 +27,26 @@
      [disabled]="activePage === 'evaluate'"
      class ='menu-item'>Оценка</button>
 
-    <button>Агенты и решения</button> <!-- Потом -->
+     <p class = "field">СИСТЕМА</p>
+
     <button>Аудит</button> <!-- Потом -->
+
+    <button>Интеграции</button>
+
+    <button>Настройки</button>
+
+    <button>Безопасность</button>
+
+    <div class="field account">
+      <img
+          src="/images/admin.png"
+          alt="Админ"
+          class="admin-avatar"
+      />
+
+        <div class="name">
+            Администратор
+        </div>
+      </div>
   </div>
 </nav>
