@@ -1,0 +1,64 @@
+.filter-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 14px;
+
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+
+  color: var(--text-muted);
+  font-family: var(--font-ui);
+  font-size: 13px;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.filter-control:hover {
+  border-color: var(--accent-color);
+  color: var(--text-main);
+}
+
+
+.filter-control input {
+  appearance: none;
+
+  width: 16px;
+  height: 16px;
+  margin: 0;
+
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+
+  background-color: var(--bg-input);
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.filter-control input:checked {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.filter-control input:checked::after {
+  content: '✓';
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.filter-control input:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 3px;
+}

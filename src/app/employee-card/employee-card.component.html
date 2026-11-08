@@ -1,0 +1,43 @@
+<div class="employee-card">
+  <div class="employee-row">
+    <span class="employee-id">
+      {{ employee().id }}
+    </span>
+    <span class="employee-name">
+      {{ employee().name }}
+    </span>
+    <span class="employee-position">
+      {{ employee().position }}
+    </span>
+    <span class="employee-department">
+      {{ employee().department }}
+    </span>
+    <span
+      class="employee-status"
+      [class.archived]="employee().status === 'archived'"
+    >
+      {{ employee().status === 'active' ? 'Активен' : 'В архиве' }}
+    </span>
+    <span class="employee-rating">
+      {{ employee().evaluation }}/100
+    </span>
+  </div>
+  <div class="card-footer">
+    <div class="extra-info">
+      <ng-content select="[card-extra]"></ng-content>
+    </div>
+    <div class="card-actions">
+      <button
+        class="archive-button"
+        (click)="archiveEmployee()"
+        [disabled]="employee().status === 'archived'"
+      >
+        Архивировать
+      </button>
+      <button class="details-button">
+        Подробнее
+        <span>→</span>
+      </button>
+    </div>
+  </div>
+</div>

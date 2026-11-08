@@ -1,0 +1,133 @@
+:host {
+  display: block;
+}
+
+.employee-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px 24px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.employee-card:hover {
+  border-color: #2e3244;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.employee-row {
+  display: grid;
+  grid-template-columns: 55px minmax(150px, 1.3fr) minmax(160px, 1.5fr) minmax(110px, 1fr) 110px 85px;
+  align-items: center;
+  gap: 16px;
+}
+
+.employee-row span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.employee-id {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-family: monospace;
+}
+
+.employee-name {
+  color: var(--text-main);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.employee-position,
+.employee-department {
+  color: #4b5563;
+  font-size: 13px;
+}
+
+.employee-rating {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.employee-status {
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.employee-status.archived {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--border-color);
+  margin-top: 14px;
+  padding-top: 12px;
+}
+
+.extra-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.card-actions button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.card-actions button:hover {
+  opacity: 0.8;
+}
+
+.archive-button {
+  color: #ef4444;
+}
+
+.archive-button:disabled {
+  color: var(--text-muted);
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.details-button {
+  color: var(--accent-color);
+}
+
+.details-button span {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.details-button:hover span {
+  transform: translateX(4px);
+}

@@ -1,20 +1,76 @@
-import { Component } from "@angular/core"
+import { Component, signal, computed } from "@angular/core"
+import { Employee } from '../models/employee.model';
+import { EmployeeCardComponent } from '../employee-card/employee-card.component';
+import { ActiveEmployeesFilterComponent } from '../active-employees-filter/active-employees-filter.component';
+
 
 @Component({
   selector: "app-employees",
   templateUrl: './employees.component.html',
   styleUrl: './employees.component.css',
-  standalone: true
+  standalone: true,
+
+  imports: [
+    EmployeeCardComponent,
+    ActiveEmployeesFilterComponent,
+  ],
 })
 
-export class EmployeesComponent{
-  protected employees = [
-    { id: 1, name: 'Иван Петров', meta: 'Frontend разработчик', position: 'Разработчик', department: 'Разработка', rating: 9.2, status: 'Активен', isTest: false },
-    { id: 2, name: 'Мария Федорова', meta: 'UX/UI дизайнер', position: 'Продукт', department: 'Продукт', rating: 8.8, status: 'Активен', isTest: true },
-    { id: 3, name: 'Алексей Смирнов', meta: 'Backend разработчик', position: 'Разработчик', department: 'Разработка', rating: 8.4, status: 'Активен', isTest: false },
-    { id: 4, name: 'Екатерина Лебедева', meta: 'Маркетолог', position: 'Маркетолог', department: 'Маркетинг', rating: 8.1, status: 'Активен', isTest: false },
-    { id: 5, name: 'Дмитрий Волков', meta: 'DevOps инженер', position: 'DevOps инженер', department: 'Инфраструктура', rating: 7.9, status: 'Активен', isTest: true },
-    { id: 6, name: 'Ольга Кузнецова', meta: 'Аналитик', position: 'Аналитик', department: 'Аналитика', rating: 7.6, status: 'В отпуске', isTest: false }
-  ];
+export class EmployeesComponent {
+
+  employees = signal<Employee[]>([
+    {
+      id: 1,
+      name: 'Александр Федолвич Иванов',
+      position: 'Frontend-разработчик',
+      department: 'Разработка',
+      evaluation: 92,
+      status: 'active'
+    },
+    {
+      id: 2,
+      name: 'Мария Семеновна Смирнова',
+      position: 'Backend-разработчик',
+      department: 'Разработка',
+      evaluation: 87,
+      status: 'active'
+    },
+    {
+      id: 3,
+      name: 'Дмитрий Иванович Петров',
+      position: 'Аналитик',
+      department: 'Аналитика',
+      evaluation: 78,
+      status: 'archived'
+    }
+  ]);
+
+
+  onlyActive = signal(false);
+
+
+  totalEmployees = computed(() => this.employees().length);
+
+
+  visibleEmployees = computed(() => {
+    if (this.onlyActive()) {
+      return this.employees().filter(
+        employee => employee.status === 'active'
+      );
+    }
+
+    return this.employees();
+  });
+
+
+  archiveEmployee(id: number) {
+  this.employees.update((list: Employee[]) =>
+    list.map(employee =>
+      employee.id === id
+        ? { ...employee, status: 'archived' }
+        : employee
+    )
+  );
+}
 }
 
