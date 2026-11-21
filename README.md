@@ -232,6 +232,113 @@ archiveEmployee(id: number) {
 Для карточек используется общая цветовая система проекта MASCOT.
 
 
+## Выполнено за 21.11.2026
+
+#### 1. Сервис управления проектами 
+
+Реализована архитектура разделения ответственности: состояние и бизнес-логика управления проектами вынесены из компонентов в отдельный глобальный сервис `ProjectService` (`src/app/services/project.service.ts`).
+
+Сервис зарегистрирован с областью видимости `providedIn: 'root'`, что делает его единым источником данных (Singleton) для всего приложения.
+
+#### 2. Модель данных Project
+
+Для типизации проектных направлений используется интерфейс `Project`.
+
+```ts
+export interface Project {
+  id: number;
+  name: string;
+  status: 'active' | 'completed';
+  budget: number;
+}
+```
+
+#### 3. Конфигурация через InjectionToken 
+
+Для хранения бизнес-ограничений предметной области создан токен `PROJECT_CONFIG` с фабрикой по умолчанию.
+
+```ts
+export interface ProjectConfig {
+  maxProjects: number;
+  minBudget: number;
+}
+
+export const PROJECT_CONFIG = new InjectionToken<ProjectConfig>('PROJECT_CONFIG', {
+  providedIn: 'root',
+  factory: () => ({ maxProjects: 10, minBudget: 1000 })
+});
+```
+
+Токен внедряется в `ProjectService` через `inject(PROJECT_CONFIG)` и используется для валидации при создании новых проектов.
+
+#### 4. Инкапсуляция состояния и Signals 
+
+Внутри `ProjectService` список проектов хранится в приватном сигнале с автоматической синхронизацией в `localStorage` через `effect()`. Внешним компонентам отдаётся защищённое представление только для чтения и вычисляемые показатели (`computed`).
+
+```ts
+private readonly _projects = signal<Project[]>(this.loadProjects());
+readonly projects = this._projects.asReadonly();
+
+readonly totalProjectsCount = computed(() => this._projects().length);
+readonly totalActiveBudget = computed(() =>
+  this._projects()
+    .filter(p => p.status === 'active')
+    .reduce((total, p) => total + Number(p.budget), 0)
+);
+```
+
+Использование `.asReadonly()` запрещает компонентам напрямую изменять массив минуя методы сервиса.
+
+#### 5. Операции над проектами 
+
+В `ProjectService` реализованы три иммутабельные операции с проверкой входных данных:
+
+- `createProject(name, budget)` — проверяет непустое название, минимальный бюджет и общий лимит из токена, после чего добавляет новый проект через `[...list, newProject]`;
+- `archiveProject(id)` — меняет статус выбранного проекта на `'completed'`;
+- `removeProject(id)` / `removeAllProjects()` — удаляет отдельный проект через `.filter()` или очищает список через `.set([])`.
+
+```ts
+archiveProject(id: number): void {
+  this._projects.update(list =>
+    list.map(p => (p.id === id ? { ...p, status: 'completed' } : p))
+  );
+}
+```
+
+#### 6. Синхронное использование в двух компонентах 
+
+Один и тот же экземпляр `ProjectService` внедрён через `inject()` в два независимых компонента:
+
+- **ProjectsComponent** (`src/app/projects/projects.component.ts`) — отвечает за отображение списка, локальную UI-фильтрацию (`onlyActiveProjects`) и вызов методов создания и архивации.
+- **DashboardComponent** (`src/app/dashboard/dashboard.component.ts`) — выводит сводную статистику (`totalProjectsCount()` и `totalActiveBudget()`) в карточке метрик «Проекты».
+
+```ts
+protected readonly projectService = inject(ProjectService);
+```
+
+При добавлении или архивации проекта в `ProjectsComponent` показатели на дашборде обновляются синхронно.
+
+#### 7. Изоляция состояния через локальный Provider 
+
+Для демонстрации иерархии инжекторов создан компонент-песочница `ProjectSandboxComponent` (`src/app/projects/project-sandbox.component.ts`), в метаданных которого указан локальный провайдер:
+
+```ts
+@Component({
+  selector: 'app-project-sandbox',
+  standalone: true,
+  providers: [ProjectService],
+  // ...
+})
+```
+
+В данном случае используются два уровня регистрации:
+
+- `providedIn: 'root'` — регистрирует сервис в корневом `EnvironmentInjector` и разделяет общее состояние между всеми компонентами приложения;
+- локальный `providers: [ProjectService]` — создаёт отдельный экземпляр сервиса в `ElementInjector` конкретного компонента.
+
+Добавление или удаление тестовых проектов внутри песочницы не влияет на основной список проектов в `ProjectsComponent` и аналитику в `DashboardComponent`.
+
+
 ## Команды разработки (Development Guide)
 
 Этот проект был сгенерирован с помощью [Angular CLI](https://github.com/angular/angular-cli). Ниже приведены основные команды для работы:

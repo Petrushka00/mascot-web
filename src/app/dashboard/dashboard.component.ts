@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
+import { ProjectService } from '../services/project.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core'
 })
 
 export class DashboardComponent{
-
+  protected readonly projectService = inject(ProjectService);
 }
